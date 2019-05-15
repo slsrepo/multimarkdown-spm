@@ -5,7 +5,7 @@
 | Title:     | MultiMarkdown SPM       |  
 | Author:    | Fletcher T. Penney & Sl (Shahaf Levi)       |  
 | Date:      | 2019-05-15 |  
-| Copyright: | Copyright © 2016 - 2018 Fletcher T. Penney.    |  
+| Copyright: | Copyright © 2016 - 2019 Fletcher T. Penney.    |  
 | Version:   | 6.4.1      |  
 
 master branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=master)](https://travis-ci.org/fletcher/MultiMarkdown-6)  
@@ -38,12 +38,14 @@ let package = Package(
     ]
 )
 ```
-3. Build or run your app with the following flag: `-Xcc -fbracket-depth=264`. For example: `swift build -Xcc -fbracket-depth=264`, `swift run TargetName -Xcc -fbracket-depth=264`
+3. Build or run your app with the following flag: `-Xcc -fbracket-depth=264`. For example: `swift build -Xcc -fbracket-depth=264`, `swift run TargetName -Xcc -fbracket-depth=264`.
+OR
+3. If you are using Xcode (with `swift package generate-xcodeproj`) add `-fbracket-depth=264` in the Build Settings of the "libMultiMarkdown" target, under "Other C Flags".
 4. Enjoy :)
 
 ## License ##
 
-	The `MultiMarkdown 6` project is released under the MIT License..
+	The `MultiMarkdown 6` project is released under the MIT License.
 	
 	GLibFacade.c and GLibFacade.h are from the MultiMarkdown v4 project:
 	
