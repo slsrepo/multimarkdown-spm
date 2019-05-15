@@ -12,7 +12,7 @@ before_install:
         fi
 
 script:
-    - swift build -Xcc -fbracket-depth=264
+    - swift build -Xcc -fbracket-depth=264 --target mmd-swift
     
 branches:
   only:
