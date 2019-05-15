@@ -1,9 +1,19 @@
-language: c
-install:
-    - make
-    - cd build; make
+language: generic
+
+before_install:
+    - if [ $TRAVIS_OS_NAME == "osx" ]; then
+            brew tap vapor/tap;
+            brew update;
+            brew install vapor;
+        else
+            eval "$(curl -sL https://apt.vapor.sh)";
+            sudo apt-get install vapor;
+            sudo chmod -R a+rx /usr/;
+        fi
+
 script:
-    - cd build; make test
+    - swift build -Xcc -fbracket-depth=264
+    
 branches:
   only:
     - master
@@ -12,4 +22,7 @@ branches:
 os:
   - linux
   - osx
-sudo: false
+sudo: required
+dist: trusty
+
+osx_image: xcode8.3
