@@ -73,6 +73,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+#include "d_string.h"
+#include "token.h"
 
 /// typedefs for internal data structures.  If you intend to work with these structures
 /// in your own code, you may need to import additional header files.
