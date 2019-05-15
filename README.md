@@ -1,5 +1,6 @@
 ## About ##
 
+|            |                           | 
 | ---------- | ------------------------- |  
 | Title:     | MultiMarkdown SPM       |  
 | Author:    | Fletcher T. Penney & Sl (Shahaf Levi)       |  
@@ -9,6 +10,7 @@
 
 MultiMarkdown-6 master branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=master)](https://travis-ci.org/fletcher/MultiMarkdown-6)  
 MultiMarkdown-6 develop branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=develop)](https://travis-ci.org/fletcher/MultiMarkdown-6)
+
 MultiMarkdown-SPM: [![Build Status](https://travis-ci.org/slsrepo/MultiMarkdown-SPM.svg?branch=develop)](https://travis-ci.org/slsrepo/MultiMarkdown-SPM)
 
 
@@ -40,7 +42,9 @@ let package = Package(
 )
 ```
 3. Build or run your app with the following flag: `-Xcc -fbracket-depth=264`. For example: `swift build -Xcc -fbracket-depth=264`, `swift run TargetName -Xcc -fbracket-depth=264`.
+
 OR
+
 3. If you are using Xcode (with `swift package generate-xcodeproj`) add `-fbracket-depth=264` in the Build Settings of the "libMultiMarkdown" target, under "Other C Flags".
 4. Enjoy :)
 
