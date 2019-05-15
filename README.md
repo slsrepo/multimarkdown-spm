@@ -2,124 +2,44 @@
 
 |            |                           |  
 | ---------- | ------------------------- |  
-| Title:     | MultiMarkdown        |  
-| Author:    | Fletcher T. Penney       |  
-| Date:      | 2018-09-01 |  
+| Title:     | MultiMarkdown SPM       |  
+| Author:    | Fletcher T. Penney & Sl (Shahaf Levi)       |  
+| Date:      | 2019-05-15 |  
 | Copyright: | Copyright © 2016 - 2018 Fletcher T. Penney.    |  
-| Version:   | 6.4.0      |  
+| Version:   | 6.4.1      |  
 
 master branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=master)](https://travis-ci.org/fletcher/MultiMarkdown-6)  
 develop branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=develop)](https://travis-ci.org/fletcher/MultiMarkdown-6)
 
-## An Announcement! ##
+## What is MultiMarkdown SPM? ##
 
-MultiMarkdown v6 is finally here!  If you want more information about
-testing, see `DevelopmentNotes`.  
+MultiMarkdown SPM is a fork of MultiMarkdown 6, compatible with Swift Package Manager (SPM).
 
-If you want to more know about the differences from v5, see the `QuickStart`
-guide.
+For more details about MultiMarkdown or for using MultiMarkdown in your app or service that isn't using SPM, visit the main repo - <https://github.com/fletcher/MultiMarkdown-6/>.
 
+To get SPM working in your project you need to do the following:
 
-## Obtaining MultiMarkdown ##
+1. Make sure your Swift version is 4.2 or above.
+2. Add libMultiMarkdown to your `Package.swift` file:
+```swift
+import PackageDescription
 
-You can download the latest installer for MacOS or Windows at Github:
-
-<https://github.com/fletcher/MultiMarkdown-6/releases>
-
-To build from source, download from Github.  Then:
-
-	make release
-	(OR)
-	make debug
-
-	cd build
-	make
-
-You can optionally test using the test suite:
-
-	ctest
-
-
-## Differences in the MultiMarkdown Syntax ##
-
-MultiMarkdown v6 is mostly about making a better MMD parser, but it involves a
-few changes to the MultiMarkdown syntax itself.
-
-1. Setext headers can consist of more than one line to be included in the
-header:
-
-		This is
-		a header
-		========
-
-2. Whitespace is not allowed between the text brackets and label brackets in
-reference links, images, footnotes, etc.  For example `[foo] [bar]` will no
-longer be the same as `[foo][bar]`.
-
-3. Link and image titles can be quoted with `'foo'`, `"foo"`, or `(foo)`.
-Link attributes can be used in both reference and inline links/images.
-
-4. HTML elements are handled slightly differently.  There is no longer a
-`markdown="1"` feature.  Instead, HTML elements that are on a line by
-themselves will open an HTML block that will cause the rest of the "paragraph"
-to be treated as HTML such that Markdown will not be parsed in side of it.
-HTML block-level tags are even "stronger" at starting an HTML block.  It is
-not quite as complex as the approach used in CommonMark, but is similar under
-most circumstances.  Leaving a blank line after the opening tag will allow
-MultiMarkdown parsing inside of the HTML block.
-
-	For example, this would not be parsed:
-
-		<div>
-		*foo*
-		</div>
-
-	But this would be:
-
-		<div>
-
-		*foo*
-
-		</div>
-
-5. "Malformed" reference link definitions are handled slightly differently.
-For example, the test suite file `Reference Footnotes.text` is parsed
-differently in compatibility mode than MMD-5.  This started as a side-effect
-of the parsing algorithm, but I actually think it makes sense.  This may or
-may not change in the future.
-
-6. Table captions in MMD-6 must come immediately *after* the table, not
-before it.
-
-7. Escaped linebreaks (`\` preceding a line break) will be interpreted as
-`<br />` (even in compatibility mode).  This was previously an optional
-feature in MMD, but I don't see a problem with just making it default 
-behavior.
-
-8. Escaped spaces (`\ `) will be interpreted as a non-breaking space, if the
-output format supports it.
-
-9. CriticMarkup, Abbreviations, Glossary Terms, and Citations are handled
-slightly differently.  See the QuickStart guide for more information.
-
-10. Fenced code blocks can use leading/trailing "fences" of 3, 4, or 5
-backticks in length.  That should be sufficient for complex documents without
-requiring a more complex parser.  If there is no trailing fence, then the
-fenced block is considered to go through the end of the document.
-
-11. Emph and Strong parsing is conceptually the same, but the implementation
-is different.  It is designed for speed, accuracy, and consistency.  In
-general, it seems to handle edge cases much more reliably, but there are still
-a couple of situations that I would like to take into account, if possible.
-These are not situations that should occur often in "real life."
-
-12. EPUB 3 output is supported without need of any external tools.
-
-13. Internationalization support for HTML phrases, such as "see footnote". See
-[Github](https://github.com/fletcher/MultiMarkdown-6/issues/37) for more
-information.
-
-
+let package = Package(
+...
+    dependencies: [
+    	...
+        .package(url: "https://github.com/slsrepo/MultiMarkdown-SPM.git", from: "6.4.1")
+	...
+    ],
+    targets: [
+    	...
+        .target(..., dependencies: [..., "libMultiMarkdown", ...]),
+	...
+    ]
+)
+```
+3. Build or run your app with the following flag: `-Xcc -fbracket-depth=264`. For example: `swift build -Xcc -fbracket-depth=264`, `swift run TargetName -Xcc -fbracket-depth=264`
+4. Enjoy :)
 
 ## License ##
 
