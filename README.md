@@ -1,6 +1,5 @@
 ## About ##
 
-|            |                           |  
 | ---------- | ------------------------- |  
 | Title:     | MultiMarkdown SPM       |  
 | Author:    | Fletcher T. Penney & Sl (Shahaf Levi)       |  
@@ -8,8 +7,10 @@
 | Copyright: | Copyright © 2016 - 2019 Fletcher T. Penney.    |  
 | Version:   | 6.4.1      |  
 
-master branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=master)](https://travis-ci.org/fletcher/MultiMarkdown-6)  
-develop branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=develop)](https://travis-ci.org/fletcher/MultiMarkdown-6)
+MultiMarkdown-6 master branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=master)](https://travis-ci.org/fletcher/MultiMarkdown-6)  
+MultiMarkdown-6 develop branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=develop)](https://travis-ci.org/fletcher/MultiMarkdown-6)
+MultiMarkdown-SPM: [![Build Status](https://travis-ci.org/slsrepo/MultiMarkdown-SPM.svg?branch=develop)](https://travis-ci.org/slsrepo/MultiMarkdown-SPM)
+
 
 ## What is MultiMarkdown SPM? ##
 
