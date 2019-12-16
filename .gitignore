@@ -36,7 +36,6 @@ test/a.out
 
 *.orig
 
-.github
 .env
 
 # SPM
