@@ -56,7 +56,7 @@
 
 #ifndef TOKEN_PARSER_TEMPLATE_H
 #define TOKEN_PARSER_TEMPLATE_H
-
+#include <stddef.h>
 
 // #define kUseObjectPool 1		//!< Use an object pool to allocate tokens to improve
 //!< performance in memory allocation. Frees all

@@ -75,6 +75,7 @@
 
 #include "d_string.h"
 #include "token.h"
+#include "../i18n.h"
 
 /// typedefs for internal data structures.  If you intend to work with these structures
 /// in your own code, you may need to import additional header files.
@@ -558,6 +559,7 @@ enum smart_quotes_language {
 	GERMANGUILL,
 	SPANISH,
 	SWEDISH,
+    HEBREW,
 };
 
 

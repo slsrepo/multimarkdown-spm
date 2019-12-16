@@ -1699,6 +1699,9 @@ void process_metadata_stack(mmd_engine * e, scratch_pad * scratch) {
 			} else if (strcmp(temp_char, "sv") == 0) {
 				scratch->language = LC_SV;
 				scratch->quotes_lang = SWEDISH;
+            } else if (strcmp(temp_char, "he") == 0) {
+                scratch->language = LC_HE;
+                scratch->quotes_lang = HEBREW;
 			} else {
 				scratch->language = LC_EN;
 				scratch->quotes_lang = ENGLISH;
@@ -1737,6 +1740,9 @@ void process_metadata_stack(mmd_engine * e, scratch_pad * scratch) {
 			} else if ((strcmp(temp_char, "swedish") == 0) ||
 					   (strcmp(temp_char, "sv") == 0)) {
 				scratch->quotes_lang = SWEDISH;
+            } else if ((strcmp(temp_char, "hebrew") == 0) ||
+                       (strcmp(temp_char, "he") == 0)) {
+                scratch->quotes_lang = HEBREW;
 			} else {
 				scratch->quotes_lang = ENGLISH;
 			}

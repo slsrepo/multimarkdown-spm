@@ -1,18 +1,14 @@
 language: generic
 
 before_install:
-    - if [ $TRAVIS_OS_NAME == "osx" ]; then
-            brew tap vapor/tap;
-            brew update;
-            brew install vapor;
-        else
-            eval "$(curl -sL https://apt.vapor.sh)";
-            sudo apt-get install vapor;
+    - if [ $TRAVIS_OS_NAME != "osx" ]; then
+            sudo apt-get update; sudo apt-get install -y libssl-dev zlib1g-dev sqlite3 libsqlite3-dev;
+            eval "$(curl -sL https://swiftenv.fuller.li/install.sh)";
             sudo chmod -R a+rx /usr/;
         fi
 
 script:
-    - swift build -Xcc -fbracket-depth=264 --target mmd-swift
+    - swift build --target mmd-swift
     
 branches:
   only:
@@ -25,4 +21,4 @@ os:
 sudo: required
 dist: trusty
 
-osx_image: xcode10.1
+osx_image: xcode11

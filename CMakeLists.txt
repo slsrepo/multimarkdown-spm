@@ -8,14 +8,14 @@ cmake_minimum_required (VERSION 2.6)
 set (My_Project_Title "MultiMarkdown")
 set (My_Project_Description "Lightweight markup processor to produce HTML, LaTeX, and more.")
 set (My_Project_Author "Fletcher T. Penney")
-set (My_Project_Revised_Date "2018-09-01")
+set (My_Project_Revised_Date "2019-12-11")
 set (My_Project_Version_Major 6)
-set (My_Project_Version_Minor 4)
+set (My_Project_Version_Minor 5)
 set (My_Project_Version_Patch 0)
 
 set (My_Project_Version "${My_Project_Version_Major}.${My_Project_Version_Minor}.${My_Project_Version_Patch}")
 
-set (My_Project_Copyright_Date "2016 - 2018")
+set (My_Project_Copyright_Date "2016 - 2019")
 set (My_Project_Copyright "Copyright © ${My_Project_Copyright_Date} ${My_Project_Author}.")
 
 string(TOUPPER ${My_Project_Title} My_Project_Title_Caps  )
@@ -403,9 +403,11 @@ endif()
 
 # OS X Builds
 if (APPLE)
+	
+	set(CMAKE_CXX_FLAGS "-stdlib=libc++")
 
 	# Configure backwards-compatible support (if your project allows it)
-	SET(CMAKE_OSX_DEPLOYMENT_TARGET "10.6" CACHE STRING "Deployment target for OSX" FORCE)
+	SET(CMAKE_OSX_DEPLOYMENT_TARGET "10.9" CACHE STRING "Deployment target for OSX" FORCE)
 
 	# Compile for x86_64 and i386.  ppc no longer supported
 	if(CMAKE_BUILD_TYPE MATCHES "Release")
@@ -523,6 +525,7 @@ SET_TARGET_PROPERTIES(libMultiMarkdown PROPERTIES
 	FRAMEWORK TRUE
 	FRAMEWORK_VERSION A
 	MACOSX_FRAMEWORK_IDENTIFIER net.multimarkdown.mmd6
+	XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "net.multimarkdown.mmd6"
 )
 
 ADD_PUBLIC_HEADER(libMultiMarkdown Sources/libMultiMarkdown/include/libMultiMarkdown.h)

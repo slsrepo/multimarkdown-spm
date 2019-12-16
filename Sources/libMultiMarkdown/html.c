@@ -186,6 +186,10 @@ void mmd_print_localized_char_html(DString * out, unsigned short type, scratch_p
 				case GERMANGUILL:
 					print_const("&#8250;");
 					break;
+                    
+                case HEBREW:
+                    print_const("&#1523;");
+                    break;
 
 				default:
 					print_const("&#8216;");
@@ -202,6 +206,10 @@ void mmd_print_localized_char_html(DString * out, unsigned short type, scratch_p
 				case GERMANGUILL:
 					print_const("&#8249;");
 					break;
+                    
+                case HEBREW:
+                    print_const("&#1523;");
+                    break;
 
 				default:
 					print_const("&#8217;");
@@ -228,6 +236,10 @@ void mmd_print_localized_char_html(DString * out, unsigned short type, scratch_p
 				case SWEDISH:
 					print( "&#8221;");
 					break;
+                    
+                case HEBREW:
+                    print_const("&#1524;");
+                    break;
 
 				default:
 					print_const("&#8220;");
@@ -249,6 +261,10 @@ void mmd_print_localized_char_html(DString * out, unsigned short type, scratch_p
 				case SPANISH:
 					print_const("&#187;");
 					break;
+                    
+                case HEBREW:
+                    print_const("&#1524;");
+                    break;
 
 				case SWEDISH:
 				case DUTCH:

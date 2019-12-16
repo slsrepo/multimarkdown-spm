@@ -4,9 +4,9 @@
 | ---------- | ------------------------- |  
 | Title:     | MultiMarkdown SPM       |  
 | Author:    | Fletcher T. Penney & Sl (Shahaf Levi)       |  
-| Date:      | 2019-05-15 |  
+| Date:      | 2019-12-16 |  
 | Copyright: | Copyright © 2016 - 2019 Fletcher T. Penney.    |  
-| Version:   | 6.4.1      |  
+| Version:   | 6.5.0      |  
 
 MultiMarkdown-6 master branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=master)](https://travis-ci.org/fletcher/MultiMarkdown-6)  
 MultiMarkdown-6 develop branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=develop)](https://travis-ci.org/fletcher/MultiMarkdown-6)
@@ -20,33 +20,34 @@ MultiMarkdown SPM is a fork of MultiMarkdown 6, compatible with Swift Package Ma
 
 For more details about MultiMarkdown or for using MultiMarkdown in your app or service that isn't using SPM, visit the main repo - <https://github.com/fletcher/MultiMarkdown-6/>.
 
-To get SPM working in your project you need to do the following:
+To use MultiMarkdown in your project you need to follow these three simple steps:
 
 1. Make sure your Swift version is 4.2 or above.
 2. Add libMultiMarkdown to your `Package.swift` file:
-```swift
-import PackageDescription
+	```swift
+	import PackageDescription
 
-let package = Package(
-...
-    dependencies: [
-    	...
-        .package(url: "https://github.com/slsrepo/MultiMarkdown-SPM.git", from: "6.4.1")
+	let package = Package(
 	...
-    ],
-    targets: [
-    	...
-        .target(..., dependencies: [..., "libMultiMarkdown", ...]),
-	...
-    ]
-)
-```
-3. Build or run your app with the following flag: `-Xcc -fbracket-depth=264`. For example: `swift build -Xcc -fbracket-depth=264`, `swift run TargetName -Xcc -fbracket-depth=264`.
-
+		dependencies: [
+			...
+			.package(url: "https://github.com/slsrepo/MultiMarkdown-SPM.git", from: "6.5.0")
+		...
+		],
+		targets: [
+			...
+			.target(..., dependencies: [..., "libMultiMarkdown", ...]),
+		...
+		]
+	)
+	```
 OR
 
-3. If you are using Xcode (with `swift package generate-xcodeproj`) add `-fbracket-depth=264` in the Build Settings of the "libMultiMarkdown" target, under "Other C Flags".
-4. Enjoy :)
+2. If you are using Xcode 11, add the package to your project by clicking on `File > Swift Packages > Add Package Dependency...` in the menu bar.
+
+3. Build your app/project (Command-B in Xcode or `swift build`), run (Command-R in Xcode or `swift run TargetName`) and enjoy :)
+
+Pro tip: If you add the `libMultiMarkdown` library as a dependency, you get the MultiMarkdown C functions, as they are. For Swift types and methods, use the `MultiMarkdownSPM` library as a dependency instead :) 
 
 ## License ##
 

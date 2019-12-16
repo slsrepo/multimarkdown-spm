@@ -259,6 +259,10 @@ void mmd_engine_set_language(mmd_engine * e, short language) {
 		case LC_SV:
 			e->quotes_lang = SWEDISH;
 			break;
+            
+        case LC_HE:
+            e->quotes_lang = HEBREW;
+            break;
 
 		default:
 			e->quotes_lang = ENGLISH;
@@ -1539,8 +1543,12 @@ void mmd_assign_ambidextrous_tokens_in_block(mmd_engine * e, token * block, size
 			case QUOTE_DOUBLE:
 				offset = t->start;
 
-				if ((offset == 0) || (char_is_whitespace_or_line_ending(str[offset - 1]))) {
+				if (offset == 0) {
 					t->can_close = 0;
+				} else if (char_is_whitespace_or_line_ending(str[offset - 1])) {
+					t->can_close = 0;
+				} else if (! char_is_whitespace_or_line_ending_or_punctuation(str[offset - 1])) {
+					t->can_open = 0;
 				}
 
 				if (char_is_whitespace_or_line_ending(str[offset + 1])) {
@@ -2181,7 +2189,7 @@ handle_line:
 
 				// Move children to parent
 				// Add ':' back
-				if (l->child->start > 0 && e->dstr->str[l->child->start - 1] == ':') {
+				if (l->child && l->child->start > 0 && e->dstr->str[l->child->start - 1] == ':') {
 					temp = token_new(COLON, l->child->start - 1, 1);
 					token_append_child(block, temp);
 				}

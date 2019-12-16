@@ -35,3 +35,14 @@ test/a.out
 /mmd-swift.xcodeproj
 
 *.orig
+
+.github
+.env
+
+# SPM
+.swiftpm/
+Package.resolved
+Packages
+.build
+*.xcodeproj
+
