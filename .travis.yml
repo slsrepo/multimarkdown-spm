@@ -8,10 +8,8 @@ before_install:
             sudo apt-get update; sudo apt-get install -y libssl-dev zlib1g-dev sqlite3 libsqlite3-dev;
             eval "$(curl -sL https://swiftenv.fuller.li/install.sh)";
             swiftenv rehash;
-            swiftenv install --list;
-            swiftenv install;
             sudo chmod -R a+rx /usr/;
-        fi
+      fi
 
 script:
     - swift build --target mmd-swift
