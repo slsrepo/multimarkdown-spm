@@ -163,9 +163,8 @@ public class MultiMarkdown {
         let e = mmd_engine_create_with_string(source, extensions.rawValue)
         
         var end = 0
-        let endPointer = UnsafeMutablePointer<Int>(mutating: &end)
         
-        let result = mmd_engine_has_metadata(e, endPointer)
+        let result = mmd_engine_has_metadata(e, &end)
         
         mmd_engine_free(e, true)
         
