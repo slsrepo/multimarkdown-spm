@@ -5,8 +5,8 @@
 | Title:     | MultiMarkdown SPM       |  
 | Author:    | Fletcher T. Penney & Sl (Shahaf Levi)       |  
 | Date:      | 2019-12-16 |  
-| Copyright: | Copyright © 2016 - 2019 Fletcher T. Penney.    |  
-| Version:   | 6.5.0      |  
+| Copyright: | Copyright © 2016 - 2020 Fletcher T. Penney.    |  
+| Version:   | 6.6.0      |  
 
 MultiMarkdown-6 master branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=master)](https://travis-ci.org/fletcher/MultiMarkdown-6)  
 MultiMarkdown-6 develop branch: [![Build Status](https://travis-ci.org/fletcher/MultiMarkdown-6.svg?branch=develop)](https://travis-ci.org/fletcher/MultiMarkdown-6)
@@ -31,7 +31,7 @@ To use MultiMarkdown in your project you need to follow these three simple steps
 	...
 		dependencies: [
 			...
-			.package(url: "https://github.com/slsrepo/MultiMarkdown-SPM.git", from: "6.5.0")
+			.package(url: "https://github.com/slsrepo/multimarkdown-spm.git", from: "6.6.0")
 		...
 		],
 		targets: [
@@ -43,7 +43,7 @@ To use MultiMarkdown in your project you need to follow these three simple steps
 	```
 OR
 
-2. If you are using Xcode 11, add the package to your project by clicking on `File > Swift Packages > Add Package Dependency...` in the menu bar.
+2. If you are using Xcode 11 (or newer), add the package to your project by clicking on `File > Swift Packages > Add Package Dependency...` in the menu bar.
 
 3. Build your app/project (Command-B in Xcode or `swift build`), run (Command-R in Xcode or `swift run TargetName`) and enjoy :)
 

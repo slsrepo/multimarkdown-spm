@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "libMultiMarkdown",
+    name: "multimarkdown-spm",
     products: [
         .library(name: "libMultiMarkdown", targets: ["libMultiMarkdown"]),
         .library(name: "MultiMarkdownSPM", targets: ["MultiMarkdownSPM"]),
@@ -11,9 +11,9 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(name: "libMultiMarkdown", dependencies: []),
-        .target(name: "mmd-swift", dependencies: ["libMultiMarkdown"]),
-        .target(name: "multimarkdown", dependencies: ["libMultiMarkdown"]),
-        .target(name: "MultiMarkdownSPM", dependencies: ["libMultiMarkdown"])
+        .target(name: "libMultiMarkdown", dependencies: [], path: "swift/libMultiMarkdown"),
+        .target(name: "mmd-swift", dependencies: ["libMultiMarkdown"], path: "swift/mmd-swift"),
+        .target(name: "multimarkdown", dependencies: ["libMultiMarkdown"], path: "swift/multimarkdown"),
+        .target(name: "MultiMarkdownSPM", dependencies: ["libMultiMarkdown"], path: "swift/MultiMarkdownSPM")
     ]
 )
