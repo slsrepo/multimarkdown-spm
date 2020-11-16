@@ -4,7 +4,7 @@
 | ---------- | ------------------------- |  
 | Title:     | MultiMarkdown SPM       |  
 | Author:    | Fletcher T. Penney & Sl (Shahaf Levi)       |  
-| Date:      | 2019-12-16 |  
+| Date:      | 2020-11-16 |  
 | Copyright: | Copyright © 2016 - 2020 Fletcher T. Penney.    |  
 | Version:   | 6.6.0      |  
 
