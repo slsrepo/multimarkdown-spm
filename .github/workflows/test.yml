@@ -1,0 +1,19 @@
+name: test
+on:
+- pull_request
+- push
+jobs:
+  xenial:
+    container: 
+      image: vapor/swift:5.1-xenial
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: swift run mmd-swift
+  bionic:
+    container: 
+      image: vapor/swift:5.1-bionic
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: swift run mmd-swift
