@@ -145,6 +145,7 @@ void mmd_print_string_html(DString * out, const char * str, bool obfuscate, bool
 	if (str) {
 		while (*str != '\0') {
 			mmd_print_char_html(out, *str, obfuscate, line_breaks);
+
 			str++;
 		}
 	}
@@ -514,9 +515,11 @@ void mmd_export_toc_entry_html(DString * out, const char * source, scratch_pad *
 void mmd_export_toc_html(DString * out, const char * source, scratch_pad * scratch, short min, short max) {
 	size_t counter = 0;
 
+	int old_label_counter = scratch->label_counter;
+
 	mmd_export_toc_entry_html(out, source, scratch, &counter, 0, min, max);
 
-	scratch->label_counter = 0;
+	scratch->label_counter = old_label_counter;
 }
 
 

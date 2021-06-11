@@ -271,16 +271,20 @@ void mmd_export_link_latex(DString * out, const char * source, token * text, lin
 
 				if (temp_char && temp_char[0] != '\0') {
 					mmd_export_token_tree_latex(out, source, text->child, scratch);
-					print_const(" (");
-					printf("\\autoref{%s}", &(link->url)[1]);
-					print_const(")");
+					print_const(" (\\autoref{");
+					mmd_print_string_latex(out, &(link->url)[1]);
+					print_const("})");
 				} else {
-					printf("\\autoref{%s}", &(link->url)[1]);
+					print_const("\\autoref{");
+					mmd_print_string_latex(out, &(link->url)[1]);
+					print_const("}");
 				}
 
 				free(temp_char);
 			} else {
-				printf("\\autoref{%s}", &(link->url)[1]);
+				print_const("\\autoref{");
+				mmd_print_string_latex(out, &(link->url)[1]);
+				print_const("}");
 			}
 
 			return;
@@ -485,9 +489,11 @@ void mmd_export_toc_entry_latex(DString * out, const char * source, scratch_pad 
 void mmd_export_toc_latex(DString * out, const char * source, scratch_pad * scratch) {
 	size_t counter = 0;
 
+	int old_label_counter = scratch->label_counter;
+
 	mmd_export_toc_entry_latex(out, source, scratch, &counter, 0);
 
-	scratch->label_counter = 0;
+	scratch->label_counter = old_label_counter;
 }
 
 

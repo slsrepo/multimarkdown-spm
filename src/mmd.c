@@ -1321,6 +1321,10 @@ void mmd_assign_ambidextrous_tokens_in_block(mmd_engine * e, token * block, size
 			case DOC_START_TOKEN:
 			case BLOCK_BLOCKQUOTE:
 			case BLOCK_DEF_ABBREVIATION:
+			case BLOCK_DEF_CITATION:
+			case BLOCK_DEF_FOOTNOTE:
+			case BLOCK_DEF_GLOSSARY:
+			case BLOCK_DEF_LINK:
 			case BLOCK_DEFLIST:
 			case BLOCK_DEFINITION:
 			case BLOCK_H1:
@@ -2454,6 +2458,17 @@ bool mmd_engine_has_metadata(mmd_engine * e, size_t * end) {
 			e->link_stack->size = 			temp->link_stack->size;
 //			e->metadata_stack->size = 		temp->metadata_stack->size;
 			e->table_stack->size = 			temp->table_stack->size;
+
+			// And reset temp stack sizes
+			temp->abbreviation_stack->size =	0;
+			temp->citation_stack->size = 		0;
+			temp->definition_stack->size = 		0;
+			temp->footnote_stack->size = 		0;
+			temp->glossary_stack->size = 		0;
+			temp->header_stack->size = 			0;
+			temp->link_stack->size = 			0;
+			temp->metadata_stack->size = 		0;
+			temp->table_stack->size = 			0;
 
 			mmd_engine_free(temp, true);
 		}

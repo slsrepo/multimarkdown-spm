@@ -58,7 +58,11 @@
 #define TOKEN_PARSER_TEMPLATE_H
 #include <stddef.h>
 
-// #define kUseObjectPool 1		//!< Use an object pool to allocate tokens to improve
+#ifdef MMD_SHOULD_ENABLE_TOKEN_POOL
+#define kUseObjectPool 1
+#endif
+// #define kUseObjectPool 1
+//!< Use an object pool to allocate tokens to improve
 //!< performance in memory allocation. Frees all
 //!< tokens at once, however, at end of parsing.
 

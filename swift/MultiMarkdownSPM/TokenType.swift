@@ -10,7 +10,47 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
     public var description: String {
         switch self {
         case .docStartToken: return "docStartToken"
-            
+        
+        case .lineHR = "lineHR"
+        case .lineSetext1 = "lineSetext1"
+        case .lineSetext2 = "lineSetext2"
+        case .lineYAML = "lineYAML"
+        case .lineContinuation = "lineContinuation"
+        case .linePlain = "linePlain"
+        case .lineIndentedTab = "lineIndentedTab"
+        case .lineIndentedSpace = "lineIndentedSpace"
+        case .lineTable = "lineTable"
+        case .lineTableSeparator = "lineTableSeparator"
+        case .lineFallback = "lineFallback"
+        case .lineHTML = "lineHTML"
+        case .lineAtx1 = "lineAtx1"
+        case .lineAtx2 = "lineAtx2"
+        case .lineAtx3 = "lineAtx3"
+        case .lineAtx4 = "lineAtx4"
+        case .lineAtx5 = "lineAtx5"
+        case .lineAtx6 = "lineAtx6"
+        case .lineBlockquote = "lineBlockquote"
+        case .lineListBulleted = "lineListBulleted"
+        case .lineListEnumarated = "lineListEnumarated"
+        case .lineDefAbbreviation = "lineDefAbbreviation"
+        case .lineDefCitation = "lineDefCitation"
+        case .lineDefFootnote = "lineDefFootnote"
+        case .lineDefGlossary = "lineDefGlossary"
+        case .lineDefLink = "lineDefLink"
+        case .lineTOC = "lineTOC"
+        case .lineDefinition = "lineDefinition"
+        case .lineMeta = "lineMeta"
+        case .lineBacktick = "lineBacktick"
+        case .lineFenceBacktick3 = "lineFenceBacktick3"
+        case .lineFenceBacktick4 = "lineFenceBacktick4"
+        case .lineFenceBacktick5 = "lineFenceBacktick5"
+        case .lineFenceBacktickStart3 = "lineFenceBacktickStart3"
+        case .lineFenceBacktickStart4 = "lineFenceBacktickStart4"
+        case .lineFenceBacktickStart5 = "lineFenceBacktickStart5"
+        case .lineStopComment = "lineStopComment"
+        case .lineEmpty = "lineEmpty"
+        case .lineStartComment = "lineStartComment"
+
         case .blockBlockquote: return "blockBlockquote"
         case .blockCodeFenced: return "blockCodeFenced"
         case .blockCodeIndented: return "blockCodeIndented"
@@ -46,7 +86,7 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .blockTableSection: return "blockTableSection"
         case .blockTerm: return "blockTerm"
         case .blockToc: return "blockToc"
-            
+        
         case .criticAddOpen: return "criticAddOpen"
         case .criticAddClose: return "criticAddClose"
         case .criticDelOpen: return "criticDelOpen"
@@ -60,14 +100,14 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .criticSubClose: return "criticSubClose"
         case .criticHiOpen: return "criticHiOpen"
         case .criticHiClose: return "criticHiClose"
-            
+        
         case .pairCriticAdd: return "pairCriticAdd"
         case .pairCriticDel: return "pairCriticDel"
         case .pairCriticCom: return "pairCriticCom"
         case .pairCriticSubAdd: return "pairCriticSubAdd"
         case .pairCriticSubDel: return "pairCriticSubDel"
         case .pairCriticHi: return "pairCriticHi"
-            
+        
         case .pairs: return "pairs"
         case .pairAngle: return "pairAngle"
         case .pairBacktick: return "pairBacktick"
@@ -92,7 +132,7 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .pairStrong: return "pairStrong"
         case .pairUl: return "pairUl"
         case .pairBraces: return "pairBraces"
-            
+        
         case .markup: return "markup"
         case .star: return "star"
         case .ul: return "ul"
@@ -100,7 +140,7 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .emphStop: return "emphStop"
         case .strongStart: return "strongStart"
         case .strongStop: return "strongStop"
-            
+        
         case .bracketLeft: return "bracketLeft"
         case .bracketRight: return "bracketRight"
         case .bracketAbbreviationLeft: return "bracketAbbreviationLeft"
@@ -109,16 +149,16 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .bracketCitationLeft: return "bracketCitationLeft"
         case .bracketImageLeft: return "bracketImageLeft"
         case .bracketVariableLeft: return "bracketVariableLeft"
-            
+        
         case .parenLeft: return "parenLeft"
         case .parenRight: return "parenRight"
-            
+        
         case .angleLeft: return "angleLeft"
         case .angleRight: return "angleRight"
-            
+        
         case .braceDoubleLeft: return "braceDoubleLeft"
         case .braceDoubleRight: return "braceDoubleRight"
-            
+        
         case .ampersand: return "ampersand"
         case .ampersandLong: return "ampersandLong"
         case .apostrophe: return "apostrophe"
@@ -135,33 +175,33 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .quoteLeftDouble: return "quoteLeftDouble"
         case .quoteRightDouble: return "quoteRightDouble"
         case .quoteRightAlt: return "quoteRightAlt"
-            
+        
         case .escapedCharacter: return "escapedCharacter"
-            
+        
         case .htmlEntity: return "htmlEntity"
         case .htmlCommentStart: return "htmlCommentStart"
         case .htmlCommentStop: return "htmlCommentStop"
         case .pairHtmlComment: return "pairHtmlComment"
-            
+        
         case .mathParenOpen: return "mathParenOpen"
         case .mathParenClose: return "mathParenClose"
         case .mathBracketOpen: return "mathBracketOpen"
         case .mathBracketClose: return "mathBracketClose"
         case .mathDollarSingle: return "mathDollarSingle"
         case .mathDollarDouble: return "mathDollarDouble"
-            
+        
         case .equal: return "equal"
         case .pipe: return "pipe"
         case .plus: return "plus"
         case .slash: return "slash"
-            
+        
         case .superscript: return "superscript"
         case .subscript: return "subscript"
-            
+        
         case .indentTab: return "indentTab"
         case .indentSpace: return "indentSpace"
         case .nonIndentSpace: return "nonIndentSpace"
-            
+        
         case .hash1: return "hash1"
         case .hash2: return "hash2"
         case .hash3: return "hash3"
@@ -177,15 +217,15 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .markerH6: return "markerH6"
         case .markerListBullet: return "markerListBullet"
         case .markerListEnumerator: return "markerListEnumerator"
-            
+        
         case .tableRow: return "tableRow"
         case .tableCell: return "tableCell"
         case .tableDivider: return "tableDivider"
-            
+        
         case .toc: return "toc"
         case .tocSingle: return "tocSingle"
         case .tocRange: return "tocRange"
-            
+        
         case .textBackslash: return "textBackslash"
         case .rawFilterLeft: return "rawFilterLeft"
         case .textBraceLeft: return "textBraceLeft"
@@ -200,9 +240,9 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .textPercent: return "textPercent"
         case .textPeriod: return "textPeriod"
         case .textPlain: return "textPlain"
-            
+        
         case .manualLabel: return "manualLabel"
-            
+        
         default:
             return "unknownTokenType"
         }
@@ -212,9 +252,9 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         switch self {
         case .blockBlockquote: return "blockquote"
         case .markerBlockquote: return "markerBlockquote"
-            
+        
         case .blockCodeFenced, .blockCodeIndented, .pairBacktick: return "code"
-            
+        
         case .blockDeflist, .blockDefinition: return "definitionList"
         case .blockDefAbbreviation, .pairBracketAbbreviation: return "abbreviation"
         case .blockDefCitation, .pairBracketCitation: return "citation"
@@ -223,7 +263,7 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .blockDefLink, .pairBracket: return "link"
         case .pairBracketImage: return "image"
         case .pairBracketVariable: return "variable"
-            
+        
         case .blockHeading: return "heading"
         case .blockH1, .blockSetext1: return "heading1"
         case .blockH2, .blockSetext2: return "heading2"
@@ -231,39 +271,39 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .blockH4: return "heading4"
         case .blockH5: return "heading5"
         case .blockH6: return "heading6"
-            
+        
         case .blockHr: return "hr"
-            
+        
         case .blockListBulleted, .blockListBulletedLoose, .blockListEnumerated, .blockListEnumeratedLoose, .blockListItem, .blockListItemTight: return "list"
         case .markerListBullet, .markerListEnumerator: return "markerList"
-            
+        
         case .blockMeta: return "metadata"
-            
+        
         case .criticAddOpen, .criticAddClose, .pairCriticAdd, .pairCriticSubAdd: return "criticAddition"
         case .criticDelOpen,.criticDelClose, .pairCriticDel, .pairCriticSubDel: return "criticDeletion"
         case .criticComOpen, .criticComClose, .pairCriticCom: return "criticComment"
         case .criticSubOpen, .criticSubDiv, .criticSubDivA, .criticSubDivB, .criticSubClose: return "criticSubstitution"
         case .criticHiOpen, .criticHiClose, .pairCriticHi: return "criticHighlight"
-            
+        
         case .pairEmph: return "emphasis"
         case .pairStrong: return "strong"
-            
+        
         case .emphStart, .emphStop, .strongStart, .strongStop, .bracketLeft, .bracketRight, .bracketAbbreviationLeft, .bracketFootnoteLeft, .bracketGlossaryLeft, .bracketCitationLeft, .bracketImageLeft, .bracketVariableLeft, .pairParen, .parenLeft, .parenRight, .backtick, .codeFence, .markerH1, .markerH2, .markerH3, .markerH4, .markerH5, .markerH6, .markup: return "markup"
-            
+        
         case .pairMath, .mathParenOpen, .mathParenClose, .mathBracketOpen, .mathBracketClose: return "math"
-            
+        
         case .blockTable: return "table"
         case .blockTableHeader: return "tableHeader"
         case .blockTableSection: return "tableSection"
         case .tableRow: return "tableRow"
         case .tableCell: return "tableCell"
         case .tableDivider: return "tableDivider"
-            
+        
         case .superscript, .pairSuperscript: return "superscript"
         case .subscript, .pairSubscript: return "subscript"
-            
+        
         case .blockToc, .toc, .tocSingle, .tocRange : return "toc"
-            
+        
         /* case .escapedCharacter: return "escapedCharacter"
          
          case .blockHtml: return "blockHtml"
@@ -277,4 +317,3 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         }
     }
 }
-
