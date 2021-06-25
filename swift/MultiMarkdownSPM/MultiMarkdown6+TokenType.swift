@@ -306,6 +306,7 @@ extension MultiMarkdown {
         public static let markerH6 = TokenType(MARKER_H6)
         public static let markerListBullet = TokenType(MARKER_LIST_BULLET)
         public static let markerListEnumerator = TokenType(MARKER_LIST_ENUMERATOR)
+        public static let markerDefListColon = TokenType(MARKER_DEFLIST_COLON)
         
         public static let tableRow = TokenType(TABLE_ROW)
         public static let tableCell = TokenType(TABLE_CELL)

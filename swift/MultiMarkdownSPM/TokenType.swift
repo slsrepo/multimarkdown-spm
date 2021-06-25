@@ -217,6 +217,7 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .markerH6: return "markerH6"
         case .markerListBullet: return "markerListBullet"
         case .markerListEnumerator: return "markerListEnumerator"
+        case .markerDefListColon: return "markerDefListColon"
         
         case .tableRow: return "tableRow"
         case .tableCell: return "tableCell"
@@ -256,6 +257,8 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .blockCodeFenced, .blockCodeIndented, .pairBacktick: return "code"
         
         case .blockDeflist, .blockDefinition: return "definitionList"
+        case .markerDefinitionList: return "markerDefinitionList"
+        
         case .blockDefAbbreviation, .pairBracketAbbreviation: return "abbreviation"
         case .blockDefCitation, .pairBracketCitation: return "citation"
         case .blockDefGlossary, .pairBracketGlossary: return "glossary"
