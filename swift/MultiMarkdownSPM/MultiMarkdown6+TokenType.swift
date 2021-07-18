@@ -332,5 +332,7 @@ extension MultiMarkdown {
         public static let textPlain = TokenType(TEXT_PLAIN)
         
         public static let manualLabel = TokenType(MANUAL_LABEL)
+        
+        public static let objectReplacementCharacter = TokenType(OBJECT_REPLACEMENT_CHARACTER)
     }
 }

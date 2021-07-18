@@ -2150,12 +2150,12 @@ void strip_line_tokens_from_block(mmd_engine * e, token * block) {
 					// Flag leading colon as markup
 					if (l->child) {
 						l->child->type = MARKER_DEFLIST_COLON;
-						
+
 						temp = l->child->next;
-						
+
 						if (temp->len) {
 							strip_leading_whitespace(temp, e->dstr->str);
-							
+
 							if (temp->len == 0) {
 								token_pop_link_from_chain(temp);
 								token_free(temp);

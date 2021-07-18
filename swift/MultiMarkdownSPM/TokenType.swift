@@ -244,6 +244,8 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         
         case .manualLabel: return "manualLabel"
         
+        case .objectReplacementCharacter: return "objectReplacementCharacter"
+        
         default:
             return "unknownTokenType"
         }

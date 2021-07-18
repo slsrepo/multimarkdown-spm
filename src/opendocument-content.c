@@ -876,6 +876,9 @@ void mmd_export_token_opendocument(DString * out, const char * source, token * t
 			scratch->padded = 1;
 			break;
 
+		case MARKER_DEFLIST_COLON:
+			break;
+
 		case BLOCK_EMPTY:
 			break;
 
@@ -2174,6 +2177,9 @@ parse_citation:
 		case TOC_RANGE:
 		case UL:
 			print_token(t);
+			break;
+
+		case OBJECT_REPLACEMENT_CHARACTER:
 			break;
 
 		default:

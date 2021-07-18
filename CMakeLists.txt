@@ -211,6 +211,9 @@ set_target_properties("${My_Project_Title}"
 	XCODE_ATTRIBUTE_FRAMEWORK_SEARCH_PATHS "${XCODE_ATTRIBUTE_FRAMEWORK_SEARCH_PATHS} ${framework_search_paths_string}"
 	PUBLIC_HEADER "${public_headers}"
 	ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}
+	XCODE_ATTRIBUTE_DEFINES_MODULE YES
+	XCODE_ATTRIBUTE_MODULEMAP_FILE "src/module.modulemap"
+#	XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "$SYMROOT/$CONFIGURATION"
 )
 
 if (hasParent)
@@ -365,17 +368,20 @@ endif()
 # Build MultiMarkdown app
 if (hasParent)
 else()
-	add_executable(multimarkdown
-		src/d_string.c
+	if (DEFINED TEST)
+	else ()
+		add_executable(multimarkdown
+			src/d_string.c
 
-		src/main.c
-		src/argtable3.c
+			src/main.c
+			src/argtable3.c
 
-		${private_headers}
-		${public_headers}
-	)
+			${private_headers}
+			${public_headers}
+		)
 
-	target_link_libraries(multimarkdown "${My_Project_Title}")
+		target_link_libraries(multimarkdown "${My_Project_Title}")
+	endif()
 endif()
 
 
