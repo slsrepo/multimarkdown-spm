@@ -11,9 +11,31 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(name: "libMultiMarkdown", dependencies: [], path: "swift/libMultiMarkdown"),
-        .target(name: "mmd-swift", dependencies: ["libMultiMarkdown"], path: "swift/mmd-swift"),
-        .target(name: "multimarkdown", dependencies: ["libMultiMarkdown"], path: "swift/multimarkdown"),
-        .target(name: "MultiMarkdownSPM", dependencies: ["libMultiMarkdown"], path: "swift/MultiMarkdownSPM")
+        .target(
+            name: "libMultiMarkdown",
+            dependencies: [],
+            path: "swift/libMultiMarkdown"
+        ),
+        .target(
+            name: "mmd-swift",
+            dependencies: ["libMultiMarkdown"],
+            path: "swift/mmd-swift",
+            cSettings: [
+                .define("DISABLE_OBJECT_POOL", to: "1"),
+            ]
+        ),
+        .target(
+            name: "multimarkdown",
+            dependencies: ["libMultiMarkdown"],
+            path: "swift/multimarkdown"
+        ),
+        .target(
+            name: "MultiMarkdownSPM",
+            dependencies: ["libMultiMarkdown"],
+            path: "swift/MultiMarkdownSPM",
+            cSettings: [
+                .define("DISABLE_OBJECT_POOL", to: "1"),
+            ]
+        )
     ]
 )

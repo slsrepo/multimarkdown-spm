@@ -59,6 +59,12 @@
 #include <stddef.h>
 
 #ifdef MMD_SHOULD_ENABLE_TOKEN_POOL
+#undef DISABLE_OBJECT_POOL
+#endif
+
+#ifdef DISABLE_OBJECT_POOL
+#undef kUseObjectPool
+#else
 #define kUseObjectPool 1
 #endif
 // #define kUseObjectPool 1

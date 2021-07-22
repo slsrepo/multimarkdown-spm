@@ -650,7 +650,7 @@ void mmd_export_token_latex(DString * out, const char * source, token * t, scrat
 
 		case MARKER_DEFLIST_COLON:
 			break;
-		
+
 		case BLOCK_EMPTY:
 			break;
 
@@ -2009,6 +2009,9 @@ parse_citation:
 
 		case UL:
 			print_const("\\_");
+			break;
+
+		case OBJECT_REPLACEMENT_CHARACTER:
 			break;
 
 		default:

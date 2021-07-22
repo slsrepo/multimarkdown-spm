@@ -630,7 +630,7 @@ void mmd_export_token_html(DString * out, const char * source, token * t, scratc
 
 			scratch->padded = 1;
 			break;
-			
+
 		case MARKER_DEFLIST_COLON:
 			break;
 
@@ -2036,6 +2036,7 @@ parse_citation:
 		case CODE_FENCE:
 		case TEXT_EMPTY:
 		case MANUAL_LABEL:
+		case OBJECT_REPLACEMENT_CHARACTER:
 			break;
 
 		case TEXT_NL:
