@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.0
 // Change swift-tools-version to the Swift version you want to use.
 import PackageDescription
 
