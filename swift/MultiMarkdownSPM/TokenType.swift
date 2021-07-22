@@ -259,7 +259,7 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .blockCodeFenced, .blockCodeIndented, .pairBacktick: return "code"
         
         case .blockDeflist, .blockDefinition: return "definitionList"
-        case .markerDefListColon: return "markerDefListColon"
+        case .markerDefListColon: return "markerDefinitionList"
         
         case .blockDefAbbreviation, .pairBracketAbbreviation: return "abbreviation"
         case .blockDefCitation, .pairBracketCitation: return "citation"
