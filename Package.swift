@@ -17,6 +17,9 @@ let package = Package(
             path: "swift/libMultiMarkdown",
             cSettings: [
                 .define("DISABLE_OBJECT_POOL", to: "1"),
+            ],
+            linkerSettings: [
+                .unsafeFlags(["-Xlinker", "-no_application_extension"])
             ]
         ),
         .target(
@@ -27,12 +30,18 @@ let package = Package(
         .target(
             name: "multimarkdown",
             dependencies: ["libMultiMarkdown"],
-            path: "swift/multimarkdown"
+            path: "swift/multimarkdown",
+            linkerSettings: [
+                .unsafeFlags(["-Xlinker", "-no_application_extension"])
+            ]
         ),
         .target(
             name: "MultiMarkdownSPM",
             dependencies: ["libMultiMarkdown"],
-            path: "swift/MultiMarkdownSPM"
+            path: "swift/MultiMarkdownSPM",
+            linkerSettings: [
+                .unsafeFlags(["-Xlinker", "-no_application_extension"])
+            ]
         )
     ]
 )
