@@ -6,7 +6,7 @@
 #	See the LICENSE file for copyright and licensing information.
 #
 
-cmake_minimum_required(VERSION 2.9)
+cmake_minimum_required(VERSION 3.5)
 
 
 # ===================
@@ -18,16 +18,16 @@ cmake_minimum_required(VERSION 2.9)
 set (My_Project_Title "libMultiMarkdown")
 set (My_Project_Description "Lightweight markup processor to produce HTML, LaTeX, and more.")
 set (My_Project_Author "Fletcher T. Penney")
-set (My_Project_Revised_Date "2020-10-28")
+set (My_Project_Revised_Date "2023-06-10")
 set (My_Project_Version_Major 6)
-set (My_Project_Version_Minor 6)
+set (My_Project_Version_Minor 7)
 set (My_Project_Version_Patch 0)
 
-set (My_Project_Copyright_Date "2016 - 2020")
+set (My_Project_Copyright_Date "2016 - 2023")
 
 set (My_Project_Identifier "net.fletcherpenney.multimarkdown")
 
-string(TIMESTAMP My_Build_Version "%Y.%m.%d.%H.%M")
+string(TIMESTAMP My_Build_Version "%Y.%m.%d.%H.%M" UTC)
 
 
 # Search for included files here
@@ -172,10 +172,11 @@ if (hasParent)
 else()
 	# If building the framework independently, we canset a deployment target
 	# set (CMAKE_OSX_DEPLOYMENT_TARGET "10.12")
+endif()
 
-	if (CMAKE_GENERATOR MATCHES "Xcode")
-		set (CMAKE_OSX_ARCHITECTURES "$(ARCHS_STANDARD)")
-	endif()
+
+if (CMAKE_GENERATOR MATCHES "Xcode")
+	set (CMAKE_OSX_ARCHITECTURES "$(ARCHS_STANDARD)")
 endif()
 
 
@@ -381,6 +382,16 @@ else()
 		)
 
 		target_link_libraries(multimarkdown "${My_Project_Title}")
+
+		set_target_properties(multimarkdown
+			PROPERTIES
+			XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH[variant=Debug] YES
+			XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH[variant=MinSizeRel] NO
+			XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH[variant=RelWithDebInfo] NO
+			XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH[variant=Release] NO
+			XCODE_LINK_BUILD_PHASE_MODE "KNOWN_LOCATION"
+		)
+
 	endif()
 endif()
 

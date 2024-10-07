@@ -208,6 +208,7 @@ extension MultiMarkdown {
         public static let pairEmph = TokenType(PAIR_EMPH)
         public static let pairMath = TokenType(PAIR_MATH)
         public static let pairParen = TokenType(PAIR_PAREN)
+        public static let pairParenLink = TokenType(PAIR_PAREN_LINK)
         public static let pairQuoteSingle = TokenType(PAIR_QUOTE_SINGLE)
         public static let pairQuoteDouble = TokenType(PAIR_QUOTE_DOUBLE)
         public static let pairQuoteAlt = TokenType(PAIR_QUOTE_ALT)
@@ -238,6 +239,8 @@ extension MultiMarkdown {
         
         public static let parenLeft = TokenType(PAREN_LEFT)
         public static let parenRight = TokenType(PAREN_RIGHT)
+        public static let parenLinkLeft = TokenType(PAREN_LINK_LEFT)
+        public static let parenLinkRight = TokenType(PAREN_LINK_RIGHT)
         
         public static let angleLeft = TokenType(ANGLE_LEFT)
         public static let angleRight = TokenType(ANGLE_RIGHT)
@@ -249,6 +252,7 @@ extension MultiMarkdown {
         public static let ampersandLong = TokenType(AMPERSAND_LONG)
         public static let apostrophe = TokenType(APOSTROPHE)
         public static let backtick = TokenType(BACKTICK)
+        public static let codeFenceLine = TokenType(CODE_FENCE_LINE)
         public static let codeFence = TokenType(CODE_FENCE)
         public static let colon = TokenType(COLON)
         public static let dashM = TokenType(DASH_M)
@@ -304,6 +308,8 @@ extension MultiMarkdown {
         public static let markerH4 = TokenType(MARKER_H4)
         public static let markerH5 = TokenType(MARKER_H5)
         public static let markerH6 = TokenType(MARKER_H6)
+        public static let markerSetext1 = TokenType(MARKER_SETEXT_1)
+        public static let markerSetext2 = TokenType(MARKER_SETEXT_2)
         public static let markerListBullet = TokenType(MARKER_LIST_BULLET)
         public static let markerListEnumerator = TokenType(MARKER_LIST_ENUMERATOR)
         public static let markerDefListColon = TokenType(MARKER_DEFLIST_COLON)

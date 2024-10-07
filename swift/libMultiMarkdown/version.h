@@ -2,7 +2,7 @@
 
 	version.h -- libMultiMarkdown
 
-	Copyright © 2016 - 2020 Fletcher T. Penney.
+	Copyright © 2016 - 2023 Fletcher T. Penney.
 
 
 	
@@ -21,10 +21,10 @@
 #ifndef FILE_LIBMULTIMARKDOWN_H
 #define FILE_LIBMULTIMARKDOWN_H
 
-#define LIBMULTIMARKDOWN_NAME "libMultiMarkdown"
+#define LIBMULTIMARKDOWN_NAME "MultiMarkdown"
 
-#define LIBMULTIMARKDOWN_VERSION "6.6.0"
-#define LIBMULTIMARKDOWN_COPYRIGHT "Copyright © 2016 - 2020 Fletcher T. Penney."
+#define LIBMULTIMARKDOWN_VERSION "6.7.0"
+#define LIBMULTIMARKDOWN_COPYRIGHT "Copyright © 2016 - 2023 Fletcher T. Penney."
 
 #define LIBMULTIMARKDOWN_LICENSE "\tThe `MultiMarkdown 6` project is released under the MIT License..\n"\
 "	\n"\

@@ -56,6 +56,7 @@
 
 #ifndef TOKEN_PARSER_TEMPLATE_H
 #define TOKEN_PARSER_TEMPLATE_H
+
 #include <stddef.h>
 
 #ifdef MMD_SHOULD_ENABLE_TOKEN_POOL
@@ -63,11 +64,10 @@
 #endif
 
 #ifdef DISABLE_OBJECT_POOL
-#undef kUseObjectPool
+	#undef kUseObjectPool
 #else
-#define kUseObjectPool 1
+	#define kUseObjectPool 1
 #endif
-// #define kUseObjectPool 1
 //!< Use an object pool to allocate tokens to improve
 //!< performance in memory allocation. Frees all
 //!< tokens at once, however, at end of parsing.
@@ -236,11 +236,11 @@ void token_trim_whitespace(token * t, const char * string);
 
 
 ///
-token * token_chain_accept(token ** t, short type);
+token * token_chain_accept(token ** t, unsigned short type);
 
 token * token_chain_accept_multiple(token ** t, int n, ...);
 
-void token_skip_until_type(token ** t, short type);
+void token_skip_until_type(token ** t, unsigned short type);
 
 void token_skip_until_type_multiple(token ** t, int n, ...);
 

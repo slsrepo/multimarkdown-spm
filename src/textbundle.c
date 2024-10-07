@@ -116,7 +116,7 @@
 	#elif TARGET_OS_MAC
 		// Other kinds of Mac OS
 	#else
-		#   error "Unknown Apple platform"
+		#error "Unknown Apple platform"
 	#endif
 #endif
 
@@ -239,7 +239,7 @@ static void add_assets(mz_zip_archive * pZip, mmd_engine * e, const char * direc
 			if (res != CURLE_OK) {
 				// Attempt to add asset from local file
 				if (!add_asset_from_file(pZip, a, destination, directory)) {
-					fprintf(stderr, "Unable to store '%s' in EPUB\n", a->url);
+					fprintf(stderr, "Unable to store '%s' in TextBundle\n", a->url);
 				}
 			} else {
 				// Store downloaded file in zip
@@ -269,7 +269,7 @@ static void add_assets(mz_zip_archive * pZip, mmd_engine * e, const char * direc
 
 			// Attempt to add asset from local file
 			if (!add_asset_from_file(pZip, a, destination, directory)) {
-				fprintf(stderr, "Unable to store '%s' in EPUB\n", a->url);
+				fprintf(stderr, "Unable to store '%s' in TextBundle\n", a->url);
 			}
 		}
 	}

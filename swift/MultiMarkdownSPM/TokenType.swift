@@ -122,6 +122,7 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .pairEmph: return "pairEmph"
         case .pairMath: return "pairMath"
         case .pairParen: return "pairParen"
+        case .pairParenLink: return "pairParenLink"
         case .pairQuoteSingle: return "pairQuoteSingle"
         case .pairQuoteDouble: return "pairQuoteDouble"
         case .pairQuoteAlt: return "pairQuoteAlt"
@@ -152,6 +153,8 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         
         case .parenLeft: return "parenLeft"
         case .parenRight: return "parenRight"
+        case .parenLinkLeft: return "parenLinkLeft"
+        case .parenLinkRight: return "parenLinkRight"
         
         case .angleLeft: return "angleLeft"
         case .angleRight: return "angleRight"
@@ -163,6 +166,7 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .ampersandLong: return "ampersandLong"
         case .apostrophe: return "apostrophe"
         case .backtick: return "backtick"
+        case .codeFenceLine: return "codeFenceLine"
         case .codeFence: return "codeFence"
         case .colon: return "colon"
         case .dashM: return "dashM"
@@ -215,6 +219,8 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .markerH4: return "markerH4"
         case .markerH5: return "markerH5"
         case .markerH6: return "markerH6"
+        case .markerSetext1: return "markerSetext1"
+        case .markerSetext2: return "markerSetext2"
         case .markerListBullet: return "markerListBullet"
         case .markerListEnumerator: return "markerListEnumerator"
         case .markerDefListColon: return "markerDefListColon"
@@ -257,6 +263,7 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .markerBlockquote: return "markerBlockquote"
         
         case .blockCodeFenced, .blockCodeIndented, .pairBacktick: return "code"
+        case .codeFenceLine: return "codeFenceLine"
         
         case .blockDeflist, .blockDefinition: return "definitionList"
         case .markerDefListColon: return "markerDefinitionList"
@@ -268,6 +275,7 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .blockDefLink, .pairBracket: return "link"
         case .pairBracketImage: return "image"
         case .pairBracketVariable: return "variable"
+        case .pairParenLink: return "linkInlineReference"
         
         case .blockHeading: return "heading"
         case .blockH1, .blockSetext1: return "heading1"
@@ -293,7 +301,7 @@ extension MultiMarkdown.TokenType: CustomStringConvertible {
         case .pairEmph: return "emphasis"
         case .pairStrong: return "strong"
         
-        case .emphStart, .emphStop, .strongStart, .strongStop, .bracketLeft, .bracketRight, .bracketAbbreviationLeft, .bracketFootnoteLeft, .bracketGlossaryLeft, .bracketCitationLeft, .bracketImageLeft, .bracketVariableLeft, .pairParen, .parenLeft, .parenRight, .backtick, .codeFence, .markerH1, .markerH2, .markerH3, .markerH4, .markerH5, .markerH6, .markup: return "markup"
+        case .emphStart, .emphStop, .strongStart, .strongStop, .bracketLeft, .bracketRight, .bracketAbbreviationLeft, .bracketFootnoteLeft, .bracketGlossaryLeft, .bracketCitationLeft, .bracketImageLeft, .bracketVariableLeft, .pairParen, .parenLeft, .parenRight, .parenLinkLeft, .parenLinkRight, .backtick, .codeFence, .markerH1, .markerH2, .markerH3, .markerH4, .markerH5, .markerH6, .markerSetext1, .markerSetext2, .markup: return "markup"
         
         case .pairMath, .mathParenOpen, .mathParenClose, .mathBracketOpen, .mathBracketClose: return "math"
         

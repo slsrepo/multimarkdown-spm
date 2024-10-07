@@ -274,150 +274,61 @@ office:mimetype="application/vnd.oasis.opendocument.text">
   <style:master-page style:name="Footnote" style:page-layout-name="pm2"/>
  </office:master-styles>
 <office:meta>
-	<dc:title>Table of Contents</dc:title>
+	<dc:title>Reference Links</dc:title>
 </office:meta>
 <office:body>
 <office:text>
-<text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Table of Contents1">
-<text:table-of-content-source text:outline-level="10">
-<text:index-title-template text:style-name="Contents_20_Heading">Table of Contents</text:index-title-template>
-</text:table-of-content-source>
-<text:index-body>
-<text:index-title text:style-name="Sect1" text:name="Table of Contents1_Head">
-<text:p text:style-name="Contents_20_Heading">Table of Contents</text:p>
-</text:index-title>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#firstlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">First Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevelc" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level c  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#firstlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">First Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#fourthleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Fourth level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#firstlevele" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">First level   <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevele" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second level   <text:tab/>1</text:a></text:p>
-</text:index-body>
-</text:table-of-content>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.1/file.txt"><text:span text:style-name="MMD-Italic">foo</text:span></text:a>.</text:p>
 
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.1/file.txt"><text:span text:style-name="MMD-Italic">foo</text:span></text:a>.</text:p>
 
-<text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Table of Contents1">
-<text:table-of-content-source text:outline-level="10">
-<text:index-title-template text:style-name="Contents_20_Heading">Table of Contents</text:index-title-template>
-</text:table-of-content-source>
-<text:index-body>
-<text:index-title text:style-name="Sect1" text:name="Table of Contents1_Head">
-<text:p text:style-name="Contents_20_Heading">Table of Contents</text:p>
-</text:index-title>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevelc" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level c  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevele" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second level   <text:tab/>1</text:a></text:p>
-</text:index-body>
-</text:table-of-content>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.3/file.txt" office:name="title"><text:span text:style-name="MMD-Italic">foo</text:span></text:a>.</text:p>
 
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.4/"><text:span text:style-name="MMD-Italic">foo</text:span></text:a>.</text:p>
 
-<text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Table of Contents1">
-<text:table-of-content-source text:outline-level="10">
-<text:index-title-template text:style-name="Contents_20_Heading">Table of Contents</text:index-title-template>
-</text:table-of-content-source>
-<text:index-body>
-<text:index-title text:style-name="Sect1" text:name="Table of Contents1_Head">
-<text:p text:style-name="Contents_20_Heading">Table of Contents</text:p>
-</text:index-title>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevelc" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level c  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevele" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second level   <text:tab/>1</text:a></text:p>
-</text:index-body>
-</text:table-of-content>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.4/"><text:span text:style-name="MMD-Italic">foo</text:span></text:a>.</text:p>
 
+<text:p text:style-name="Standard">5</text:p>
 
-<text:p text:style-name="Standard">foo {{TOC}}</text:p>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.6/" office:name="title"><text:span text:style-name="MMD-Italic">foo</text:span></text:a>.</text:p>
 
-<text:p text:style-name="Standard">foo {{TOC:2}}</text:p>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.0/">foo</text:a>.</text:p>
 
-<text:p text:style-name="Standard">foo {{TOC:2-3}}</text:p>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.0/">foo</text:a>.</text:p>
 
-<text:p text:style-name="Preformatted Text">{{TOC}}<text:line-break/><text:line-break/>{{TOC:2}}<text:line-break/><text:line-break/>{{TOC:2-3}}<text:line-break/></text:p>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.1/file.txt"><text:a xlink:type="simple" xlink:href="http://test.0/">foo</text:a></text:a></text:p>
 
-<text:h text:outline-level="2"><text:bookmark text:name="secondlevel"/>Second Level</text:h>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.0/"><text:a xlink:type="simple" xlink:href="http://test.0/">foo</text:a></text:a></text:p>
 
-<text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Table of Contents1">
-<text:table-of-content-source text:outline-level="10">
-<text:index-title-template text:style-name="Contents_20_Heading">Table of Contents</text:index-title-template>
-</text:table-of-content-source>
-<text:index-body>
-<text:index-title text:style-name="Sect1" text:name="Table of Contents1_Head">
-<text:p text:style-name="Contents_20_Heading">Table of Contents</text:p>
-</text:index-title>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#firstlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">First Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevelc" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level c  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#firstlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">First Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#fourthleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Fourth level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#firstlevele" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">First level   <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevele" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second level   <text:tab/>1</text:a></text:p>
-</text:index-body>
-</text:table-of-content>
+<text:p text:style-name="Standard">10</text:p>
 
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.3/file.txt" office:name="title"><text:a xlink:type="simple" xlink:href="http://test.1/file.txt">foo</text:a></text:a></text:p>
 
-<text:h text:outline-level="1"><text:bookmark text:name="firstlevel"/>First Level</text:h>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.1/file.txt">foo</text:a></text:p>
 
-<text:h text:outline-level="2"><text:bookmark text:name="secondlevelb"/>Second Level b</text:h>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.0/">foo</text:a> <text:a xlink:type="simple" xlink:href="http://test.1/file.txt">bar</text:a></text:p>
 
-<text:h text:outline-level="3"><text:bookmark text:name="thirdlevel"/>Third Level</text:h>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.0/">foo</text:a>
+<text:a xlink:type="simple" xlink:href="http://test.1/file.txt">bar</text:a></text:p>
 
-<text:h text:outline-level="2"><text:bookmark text:name="secondlevelc"/>Second Level c</text:h>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://daringfireball.net/projects/markdown/" office:name="Daring Fireball:
+Markdown">Markdown</text:a></text:p>
 
-<text:h text:outline-level="1"><text:bookmark text:name="firstlevelb"/>First Level b</text:h>
+<text:p text:style-name="Standard">15</text:p>
 
-<text:h text:outline-level="3"><text:bookmark text:name="thirdlevelb"/>Third Level b</text:h>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.7/">angle1</text:a></text:p>
 
-<text:h text:outline-level="2"><text:bookmark text:name="secondleveld"/>Second level d</text:h>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.8/">angle2</text:a></text:p>
 
-<text:h text:outline-level="3"><text:bookmark text:name="thirdleveld"/>Third level d</text:h>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.9/">angle3</text:a></text:p>
 
-<text:h text:outline-level="4"><text:bookmark text:name="fourthleveld"/>Fourth level d</text:h>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.10/">angle4</text:a></text:p>
 
-<text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Table of Contents1">
-<text:table-of-content-source text:outline-level="10">
-<text:index-title-template text:style-name="Contents_20_Heading">Table of Contents</text:index-title-template>
-</text:table-of-content-source>
-<text:index-body>
-<text:index-title text:style-name="Sect1" text:name="Table of Contents1_Head">
-<text:p text:style-name="Contents_20_Heading">Table of Contents</text:p>
-</text:index-title>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#firstlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">First Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdlevel" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third Level  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevelc" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second Level c  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#firstlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">First Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdlevelb" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third Level b  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#thirdleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Third level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#fourthleveld" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Fourth level d  <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#firstlevele" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">First level   <text:tab/>1</text:a></text:p>
-<text:p text:style-name="TOC_Item"><text:a xlink:type="simple" xlink:href="#secondlevele" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Second level   <text:tab/>1</text:a></text:p>
-</text:index-body>
-</text:table-of-content>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.11/">angle5</text:a></text:p>
 
+<text:p text:style-name="Standard">20</text:p>
 
-<text:h text:outline-level="1"><text:bookmark text:name="firstlevele"/>First level</text:h>
-
-<text:h text:outline-level="2"><text:bookmark text:name="secondlevele"/>Second level</text:h>
+<text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://test.12/">angle6</text:a></text:p>
 </office:text>
 </office:body>
 </office:document>

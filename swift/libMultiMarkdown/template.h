@@ -14,7 +14,7 @@
 
 /*
 
-	Copyright © 2016 - 2020 Fletcher T. Penney.
+	Copyright © 2016 - 2023 Fletcher T. Penney.
 
 
 	The `MultiMarkdown 6` project is released under the MIT License..

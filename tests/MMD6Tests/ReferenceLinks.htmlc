@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-<head>
-	<meta charset="utf-8"/>
-	<title>Reference Links</title>
-</head>
-<body>
+<p>title:	Reference Links
+latexconfig:	article</p>
 
 <p><a href="http://test.1/file.txt"><em>foo</em></a>.</p>
 
@@ -39,9 +34,20 @@
 <p><a href="http://test.0/">foo</a>
 <a href="http://test.1/file.txt">bar</a></p>
 
-<p><a href="http://daringfireball.net/projects/markdown/" title="Daring Fireball:
-Markdown">Markdown</a></p>
+<p>[Markdown]</p>
 
-</body>
-</html>
+<p>15</p>
 
+<p><a href="http://test.7/">angle1</a></p>
+
+<p><a href="http://test.8/">angle2</a></p>
+
+<p><a href="http://test.9/">angle3</a></p>
+
+<p><a href="http://test.10/">angle4</a></p>
+
+<p><a href="http://test.11/">angle5</a></p>
+
+<p>20</p>
+
+<p><a href="http://test.12/">angle6</a></p>

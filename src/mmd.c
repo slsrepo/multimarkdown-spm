@@ -642,6 +642,15 @@ void mmd_assign_line_type(mmd_engine * e, token * line) {
 
 		case DASH_N:
 		case DASH_M:
+
+			// This could be a table separator instead of a list
+			if (!(e->extensions & EXT_COMPATIBILITY)) {
+				if (scan_table_separator(&source[first_child->start])) {
+					line->type = LINE_TABLE_SEPARATOR;
+					break;
+				}
+			}
+
 			if (scan_setext(&source[first_child->start])) {
 				line->type = LINE_SETEXT_2;
 				break;
@@ -905,6 +914,9 @@ void deindent_line(token  * line) {
 			if (line->child) {
 				line->child->prev = NULL;
 				line->child->tail = t->tail;
+
+				line->start = line->child->start;
+				line->len -= t->len;
 			}
 
 			token_free(t);
@@ -1813,8 +1825,11 @@ void recursive_parse_indent(mmd_engine * e, token * block) {
 	// Strip tokens?
 	switch (block->type) {
 		case BLOCK_DEFINITION:
-			// Strip leading ':' from definition
-			token_remove_first_child(block->child);
+			// Flag leading ':' as markup
+			block->child->child->type = MARKER_DEFLIST_COLON;
+
+			// Strip whitespace between colon and remainder of line
+			strip_leading_whitespace(block->child->child->next, e->dstr->str);
 			break;
 	}
 
@@ -1839,9 +1854,14 @@ void is_list_loose(token * list) {
 
 				while (walker->next != NULL) {
 					if (walker->type == BLOCK_EMPTY) {
-						if (walker->next->type == BLOCK_PARA) {
-							loose = true;
-						}
+                        // TODO: This switch statement is probably not all-inclusive
+                        switch (walker->next->type) {
+                            case BLOCK_PARA:
+                            case BLOCK_TABLE:
+                                loose = true;
+                            default:
+                                break;
+                        }
 					}
 
 					walker = walker->next;
@@ -2137,13 +2157,22 @@ void strip_line_tokens_from_block(mmd_engine * e, token * block) {
 		switch (l->type) {
 			case LINE_SETEXT_1:
 			case LINE_SETEXT_2:
-				if ((block->type == BLOCK_SETEXT_1) ||
-						(block->type == BLOCK_SETEXT_2)) {
-					temp = l->next;
-					tokens_prune(l, l);
-					l = temp;
-					break;
+				temp = token_new_parent(l->child, MARKER_SETEXT_1 + l->type - LINE_SETEXT_1);
+
+				// Add contents of line to parent block
+				token_append_child(block, temp);
+
+				// Disconnect line from it's contents
+				l->child = NULL;
+
+				// Need to remember first line we strip
+				if (children == NULL) {
+					children = l;
 				}
+
+				// Advance to next line
+				l = l->next;
+				break;
 
 			case LINE_DEFINITION:
 				if (block->type == BLOCK_DEFINITION) {
@@ -2153,16 +2182,7 @@ void strip_line_tokens_from_block(mmd_engine * e, token * block) {
 
 						temp = l->child->next;
 
-						if (temp->len) {
-							strip_leading_whitespace(temp, e->dstr->str);
-
-							if (temp->len == 0) {
-								token_pop_link_from_chain(temp);
-								token_free(temp);
-							}
-						} else {
-							strip_leading_whitespace(temp, e->dstr->str);
-						}
+						strip_leading_whitespace(temp, e->dstr->str);
 					}
 				}
 
@@ -2239,10 +2259,9 @@ handle_line:
 				strip_line_tokens_from_block(e, l);
 
 				// Move children to parent
-				// Add ':' back
-				if (l->child && l->child->start > 0 && e->dstr->str[l->child->start - 1] == ':') {
-					temp = token_new(COLON, l->child->start - 1, 1);
-					token_append_child(block, temp);
+				// Add ':' back?
+				if (l->child && l->child->type == MARKER_DEFLIST_COLON) {
+					l->child->type = COLON;
 				}
 
 				token_append_child(block, l->child);
@@ -2785,6 +2804,22 @@ void mmd_engine_update_metavalue_for_key(mmd_engine * e, const char * key, const
 
 	d_string_free(temp, true);
 	free(clean);
+}
+
+
+/// Convert MMD text to AST, with specified extensions, and language
+/// Returned token tree must be freed
+token * mmd_string_parse(const char * source, unsigned long extensions) {
+	mmd_engine * e = mmd_engine_create_with_string(source, extensions);
+
+	mmd_engine_parse_string(e);
+
+	token * result = mmd_engine_root(e);
+	e->root = NULL;
+
+	mmd_engine_free(e, true);
+
+	return result;
 }
 
 

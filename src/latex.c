@@ -100,7 +100,7 @@ void mmd_print_char_latex(DString * out, char c) {
 			break;
 
 		case '/':
-			print_const("\\slash ");
+			print_const("\\slash{}");
 			break;
 
 		case '^':
@@ -145,6 +145,23 @@ void mmd_print_string_latex(DString * out, const char * str) {
 
 	while (*str != '\0') {
 		mmd_print_char_latex(out, *str);
+		str++;
+	}
+}
+
+
+void mmd_print_label_latex(DString * out, const char * str) {
+	if (str == NULL) {
+		return;
+	}
+
+	while (*str != '\0') {
+		if (*str == '_') {
+			print_char(*str);
+		} else {
+			mmd_print_char_latex(out, *str);
+		}
+
 		str++;
 	}
 }
@@ -272,18 +289,18 @@ void mmd_export_link_latex(DString * out, const char * source, token * text, lin
 				if (temp_char && temp_char[0] != '\0') {
 					mmd_export_token_tree_latex(out, source, text->child, scratch);
 					print_const(" (\\autoref{");
-					mmd_print_string_latex(out, &(link->url)[1]);
+					mmd_print_label_latex(out, &(link->url)[1]);
 					print_const("})");
 				} else {
 					print_const("\\autoref{");
-					mmd_print_string_latex(out, &(link->url)[1]);
+					mmd_print_label_latex(out, &(link->url)[1]);
 					print_const("}");
 				}
 
 				free(temp_char);
 			} else {
 				print_const("\\autoref{");
-				mmd_print_string_latex(out, &(link->url)[1]);
+				mmd_print_label_latex(out, &(link->url)[1]);
 				print_const("}");
 			}
 
@@ -415,7 +432,7 @@ void mmd_export_image_latex(DString * out, const char * source, token * text, li
 	if (is_figure) {
 		print_const("\n");
 
-		if (text) {
+		if ((text && text->len > 3) || (link->title && link->title[0] != '\0')) {
 			if (link->title && link->title[0] != '\0') {
 				printf("\\caption[%s]{", link->title);
 			} else {
@@ -560,6 +577,7 @@ void mmd_export_token_latex(DString * out, const char * source, token * t, scrat
 					// Raw source
 					if (raw_filter_text_matches(temp_char, FORMAT_LATEX)) {
 						switch (t->child->tail->type) {
+							case CODE_FENCE_LINE:
 							case LINE_FENCE_BACKTICK_3:
 							case LINE_FENCE_BACKTICK_4:
 							case LINE_FENCE_BACKTICK_5:
@@ -707,6 +725,7 @@ void mmd_export_token_latex(DString * out, const char * source, token * t, scrat
 					break;
 			}
 
+			header_clean_trailing_whitespace(t->child, source);
 			mmd_export_token_tree_latex(out, source, t->child, scratch);
 			trim_trailing_whitespace_d_string(out);
 
@@ -1142,6 +1161,8 @@ void mmd_export_token_latex(DString * out, const char * source, token * t, scrat
 		case MARKER_H4:
 		case MARKER_H5:
 		case MARKER_H6:
+		case MARKER_SETEXT_1:
+		case MARKER_SETEXT_2:
 		case MARKER_LIST_BULLET:
 		case MARKER_LIST_ENUMERATOR:
 			break;
@@ -1852,7 +1873,7 @@ parse_citation:
 			break;
 
 		case SLASH:
-			print_const("\\slash ");
+			print_const("\\slash{}");
 			break;
 
 		case STAR:
@@ -2284,7 +2305,7 @@ void mmd_export_token_latex_tt(DString * out, const char * source, token * t, sc
 			break;
 
 		case SLASH:
-			print_const("\\slash ");
+			print_const("\\slash{}");
 			break;
 
 		case TEXT_BACKSLASH:
@@ -2473,7 +2494,7 @@ void mmd_start_complete_latex(DString * out, const char * source, scratch_pad * 
 			print_const("}\n");
 		} else if (strcmp(m->key, "bibtex") == 0) {
 			print_const("\\def\\bibliocommand{\\bibliography{");
-			mmd_print_string_latex(out, m->value);
+			print(m->value);
 			print_const("}}\n");
 		} else if (strcmp(m->key, "transcludebase") == 0) {
 		} else if (strcmp(m->key, "xhtmlheader") == 0) {

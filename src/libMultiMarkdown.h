@@ -109,6 +109,11 @@ DString * mmd_string_convert_opml_to_text(const char * source);
 DString * mmd_string_convert_itmz_to_text(const char * source);
 
 
+/// Convert MMD text to AST, with specified extensions, and language
+/// Returned token tree must be freed
+token * mmd_string_parse(const char * source, unsigned long extensions);
+
+
 /// Convert MMD text to specified format, with specified extensions, and language
 /// Returned char * must be freed
 char * mmd_string_convert(const char * source, unsigned long extensions, short format, short language);
@@ -424,6 +429,7 @@ enum token_types {
 	PAIR_EMPH,
 	PAIR_MATH,
 	PAIR_PAREN,
+	PAIR_PAREN_LINK,
 	PAIR_QUOTE_SINGLE,
 	PAIR_QUOTE_DOUBLE,
 	PAIR_QUOTE_ALT,
@@ -454,6 +460,8 @@ enum token_types {
 
 	PAREN_LEFT,
 	PAREN_RIGHT,
+	PAREN_LINK_LEFT,
+	PAREN_LINK_RIGHT,
 
 	ANGLE_LEFT,
 	ANGLE_RIGHT,
@@ -465,6 +473,7 @@ enum token_types {
 	AMPERSAND_LONG,
 	APOSTROPHE,
 	BACKTICK,
+	CODE_FENCE_LINE,
 	CODE_FENCE,
 	COLON,
 	DASH_M,
@@ -517,6 +526,8 @@ enum token_types {
 	MARKER_H4,
 	MARKER_H5,
 	MARKER_H6,
+	MARKER_SETEXT_1,
+	MARKER_SETEXT_2,
 	MARKER_LIST_BULLET,
 	MARKER_LIST_ENUMERATOR,
 	MARKER_DEFLIST_COLON,

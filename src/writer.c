@@ -482,7 +482,22 @@ char * label_from_header(const char * source, token * t, scratch_pad * scratch) 
 
 			scratch->label_counter++;
 		} else {
-			result = label_from_token(source, t);
+			temp_token = token_new(t->type, t->start, t->len);
+
+			if (t->child && t->child->tail) {
+				switch (t->child->tail->type) {
+					case MARKER_SETEXT_1:
+					case MARKER_SETEXT_2:
+						temp_token->len = t->child->tail->start - t->start;
+						break;
+
+					default:
+						break;
+				}
+			}
+
+			result = label_from_token(source, temp_token);
+			token_free(temp_token);
 		}
 	}
 
@@ -895,6 +910,24 @@ void link_free(link * l) {
 		}
 
 		free(l);
+	}
+}
+
+
+/// Fix single whitespace characters
+void whitespace_fix(token * t, const char * source) {
+	while (t) {
+		if ((t->type == TEXT_PLAIN) && (t->len == 1)) {
+			if (source[t->start] == ' ') {
+				t->type = NON_INDENT_SPACE;
+			}
+		}
+
+		if (t->child) {
+			whitespace_fix(t->child, source);
+		}
+
+		t = t->next;
 	}
 }
 
@@ -1334,6 +1367,7 @@ bool definition_extract(mmd_engine * e, token ** remainder) {
 			}
 
 			// Skip space
+			whitespace_fix(*remainder, e->dstr->str);
 			whitespace_accept(remainder);
 
 			// Grab destination
@@ -1544,10 +1578,17 @@ token * manual_label_from_header(token * h, const char * source) {
 			case MARKER_H4:
 			case MARKER_H5:
 			case MARKER_H6:
+			case MARKER_SETEXT_1:
+			case MARKER_SETEXT_2:
 				walker = walker->prev;
 				break;
 
 			case TEXT_PLAIN:
+				if (walker->len == 0) {
+					walker = walker->prev;
+					break;
+				}
+
 				if (walker->len == 1) {
 					if (source[walker->start] == ' ') {
 						walker = walker->prev;
@@ -1789,15 +1830,23 @@ void automatic_search_text(mmd_engine * e, token * t, trie * ac) {
 
 	token * tok = t;
 
+	char * source = e->dstr->str;
+
 	if (m) {
 		walker = m->next;
 
 		while (walker) {
-			token_split(tok, walker->start, walker->len, walker->match_type);
+			// Only if we match a full word
+			if (
+				(walker->start + walker->len == tok->start + tok->len) ||
+				(char_is_whitespace_or_line_ending_or_punctuation(source[walker->start + walker->len]))
+			) {
+				token_split(tok, walker->start, walker->len, walker->match_type);
 
-			// Advance token to next token
-			while (tok && (tok->start < walker->start + walker->len)) {
-				tok = tok->next;
+				// Advance token to next token
+				while (tok && (tok->start < walker->start + walker->len)) {
+					tok = tok->next;
+				}
 			}
 
 			// Advance to next match (if present)
@@ -1871,13 +1920,19 @@ void identify_global_search_terms(mmd_engine * e, scratch_pad * scratch) {
 	// Add abbreviations to search trie
 	for (int i = 0; i < e->abbreviation_stack->size; ++i) {
 		f = stack_peek_index(e->abbreviation_stack, i);
-		trie_insert(ac, f->label_text, PAIR_BRACKET_ABBREVIATION);
+
+		if (f->label_text && strlen(f->label_text) > 1) {
+			trie_insert(ac, f->label_text, PAIR_BRACKET_ABBREVIATION);
+		}
 	}
 
 	// Add glossary to search trie (without leading '?')
 	for (int i = 0; i < e->glossary_stack->size; ++i) {
 		f = stack_peek_index(e->glossary_stack, i);
-		trie_insert(ac, f->clean_text, PAIR_BRACKET_GLOSSARY);
+
+		if (f->clean_text && strlen(f->clean_text) > 1) {
+			trie_insert(ac, f->clean_text, PAIR_BRACKET_GLOSSARY);
+		}
 	}
 
 	ac_trie_prepare(ac);
@@ -2550,7 +2605,6 @@ void strip_leading_whitespace(token * chain, const char * source) {
 				chain->type = TEXT_EMPTY;
 
 			case TEXT_EMPTY:
-				chain = chain->next;
 				break;
 
 			case TEXT_PLAIN:
@@ -2666,6 +2720,67 @@ short raw_level_for_header(token * header) {
 	}
 
 	return 0;
+}
+
+
+void header_clean_trailing_whitespace(token * header, const char * source) {
+	token * walker = header->tail;
+	bool done = false;
+
+	while (!done && walker) {
+		switch (walker->type) {
+			case TEXT_PLAIN:
+				token_trim_trailing_whitespace(walker, source);
+
+				if (walker->len) {
+					done = true;
+				}
+
+				break;
+
+			case NON_INDENT_SPACE:
+			case INDENT_SPACE:
+			case INDENT_TAB:
+				walker->type = TEXT_PLAIN;
+
+			case TEXT_NL:
+			case TEXT_NL_SP:
+			case TEXT_LINEBREAK:
+			case TEXT_LINEBREAK_SP:
+				token_trim_trailing_whitespace(walker, source);
+				break;
+
+			case MARKER_H1:
+			case MARKER_H2:
+			case MARKER_H3:
+			case MARKER_H4:
+			case MARKER_H5:
+			case MARKER_H6:
+			case MANUAL_LABEL:
+				break;
+
+			case MARKER_SETEXT_1:
+			case MARKER_SETEXT_2:
+				if (walker->prev) {
+					switch (walker->prev->type) {
+						case TEXT_NL:
+						case TEXT_NL_SP:
+						case TEXT_LINEBREAK:
+						case TEXT_LINEBREAK_SP:
+							walker->prev->type = NON_INDENT_SPACE;
+							break;
+					}
+				}
+
+				break;
+
+			default:
+				done = true;
+				break;
+		}
+
+		walker = walker->prev;
+	}
 }
 
 
