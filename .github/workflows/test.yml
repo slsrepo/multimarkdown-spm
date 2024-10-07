@@ -1,19 +1,25 @@
 name: test
+
 on:
-- pull_request
-- push
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
 jobs:
-  xenial:
-    container: 
-      image: vapor/swift:5.1-xenial
-    runs-on: ubuntu-latest
+  build:
+    name: Swift on ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        
+    runs-on: ${{ matrix.os }}
+
     steps:
-    - uses: actions/checkout@v1
-    - run: swift run mmd-swift
-  bionic:
-    container: 
-      image: vapor/swift:5.1-bionic
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - run: swift run mmd-swift
+    - uses: actions/checkout@v4
+    - name: Build
+      run: swift build -v
+    - name: Run tests
+      run: swift test -v
+    - name: Run mmd-swift
+      run: swift run mmd-swift
