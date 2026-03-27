@@ -19,7 +19,7 @@ let package = Package(
                 .define("DISABLE_OBJECT_POOL", to: "1"),
             ],
             linkerSettings: [
-                .unsafeFlags(["-Xlinker", "-no_application_extension"])
+                .unsafeFlags(["-Xlinker", "-no_application_extension"], .when(platforms: [.macOS, .iOS, .tvOS, .watchOS, .macCatalyst]))
             ]
         ),
         .target(
@@ -32,7 +32,7 @@ let package = Package(
             dependencies: ["libMultiMarkdown"],
             path: "swift/multimarkdown",
             linkerSettings: [
-                .unsafeFlags(["-Xlinker", "-no_application_extension"])
+                .unsafeFlags(["-Xlinker", "-no_application_extension"], .when(platforms: [.macOS, .iOS, .tvOS, .watchOS, .macCatalyst]))
             ]
         ),
         .target(
@@ -40,7 +40,7 @@ let package = Package(
             dependencies: ["libMultiMarkdown"],
             path: "swift/MultiMarkdownSPM",
             linkerSettings: [
-                .unsafeFlags(["-Xlinker", "-no_application_extension"])
+                .unsafeFlags(["-Xlinker", "-no_application_extension"], .when(platforms: [.macOS, .iOS, .tvOS, .watchOS, .macCatalyst]))
             ]
         )
     ]
